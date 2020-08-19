@@ -7,19 +7,22 @@ const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
 
 export default function MovieItem({name, character, image}) {
-  return (
-    <View style={styles.container}>
-      <FastImage
-        source={{
-          uri: `https://image.tmdb.org/t/p/w500${image}`,
-        }}
-        style={styles.image}
-        resizeMode={FastImage.resizeMode.cover}
-      />
-      <Text style={{fontFamily: 'Roboto-Bold', fontSize: 14}}>{name}</Text>
-      <Text style={common.subtitle}>{character}</Text>
-    </View>
-  );
+  if (image) {
+    return (
+      <View style={styles.container}>
+        <FastImage
+          source={{
+            uri: `https://image.tmdb.org/t/p/w500${image}`,
+          }}
+          style={styles.image}
+          resizeMode={FastImage.resizeMode.cover}
+        />
+        <Text style={{fontFamily: 'Roboto-Bold', fontSize: 14}}>{name}</Text>
+        <Text style={common.subtitle}>{character}</Text>
+      </View>
+    );
+  }
+  return <View />;
 }
 
 const styles = StyleSheet.create({

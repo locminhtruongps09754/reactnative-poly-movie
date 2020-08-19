@@ -70,6 +70,6 @@ export default function ViewAllMovieScreen({route}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginBottom: 150,
+    marginBottom: 140,
   },
 });

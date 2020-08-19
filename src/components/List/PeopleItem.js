@@ -33,8 +33,8 @@ export default function PeopleItem({goTo, id, knownFor, image, name}) {
 
 const styles = StyleSheet.create({
   container: {
-    borderRadius: 5,
     backgroundColor: 'white',
+    borderRadius: 5,
     margin: width * 0.01,
     ...Platform.select({
       ios: {
@@ -51,10 +51,12 @@ const styles = StyleSheet.create({
   image: {
     width: width * 0.475,
     height: 220,
+    borderTopLeftRadius: 5,
+    borderTopRightRadius: 5,
   },
   name: {
-    paddingHorizontal: 3,
-    paddingVertical: 5,
+    paddingHorizontal: 5,
+    paddingVertical: 7,
     fontFamily: 'Roboto-Bold',
     fontSize: 14,
   },

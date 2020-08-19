@@ -14,26 +14,29 @@ const height = Dimensions.get('window').height;
 
 export default function MovieItem({goTo, id, image}) {
   const navigation = useNavigation();
-  return (
-    <View>
-      <Pressable onPress={() => navigation.navigate(goTo, {id})}>
-        <View style={styles.container}>
-          <ActivityIndicator
-            size="small"
-            color="#E54028"
-            style={styles.activityIndicator}
-          />
-          <FastImage
-            source={{
-              uri: `https://image.tmdb.org/t/p/w500${image}`,
-            }}
-            style={styles.image}
-            resizeMode={FastImage.resizeMode.cover}
-          />
-        </View>
-      </Pressable>
-    </View>
-  );
+  if (image) {
+    return (
+      <View>
+        <Pressable onPress={() => navigation.navigate(goTo, {id})}>
+          <View style={styles.container}>
+            <ActivityIndicator
+              size="small"
+              color="#E54028"
+              style={styles.activityIndicator}
+            />
+            <FastImage
+              source={{
+                uri: `https://image.tmdb.org/t/p/w500${image}`,
+              }}
+              style={styles.image}
+              resizeMode={FastImage.resizeMode.cover}
+            />
+          </View>
+        </Pressable>
+      </View>
+    );
+  }
+  return <View />;
 }
 
 const styles = StyleSheet.create({
